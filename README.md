@@ -1,6 +1,8 @@
 # study_flutter_app
-
-A new Flutter application.
+来自《Flutter实战》
+https://flutterchina.club/
+当前进度：
+https://book.flutterchina.club/chapter5/constrainedbox_and_sizebox.html
 
 ## Getting Started
 
