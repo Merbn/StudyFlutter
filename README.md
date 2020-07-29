@@ -2,7 +2,7 @@
 来自《Flutter实战》
 https://flutterchina.club/
 当前进度：
-https://book.flutterchina.club/chapter5/constrainedbox_and_sizebox.html
+https://book.flutterchina.club/chapter5/decoratedbox.html
 
 ## Getting Started
 

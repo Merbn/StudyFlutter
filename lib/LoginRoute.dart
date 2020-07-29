@@ -27,7 +27,22 @@ class _LoginRouteState extends State<LoginRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("登录")),
+      appBar: AppBar(
+        title: Text("登录"),
+        actions: <Widget>[
+//          就必须通过UnconstrainedBox来“去除”父元素的限制
+          UnconstrainedBox(
+            child: SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                strokeWidth: 3,
+                valueColor: AlwaysStoppedAnimation(Colors.white70),
+              ),
+            ),
+          )
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Form(
@@ -45,7 +60,6 @@ class _LoginRouteState extends State<LoginRoute> {
                   ),
                   // 校验用户名（不能为空）
                   validator: (v) {
-                    
                     return v.trim().isNotEmpty ? null : "";
                   }),
               TextFormField(

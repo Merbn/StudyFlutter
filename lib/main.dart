@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
 //      initialRoute: "/",
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -80,100 +79,102 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+
       ),
       body: Center(
-        child: SingleChildScrollView(child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'ffffffffffffix:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            FlatButton(
-              onPressed: () {
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'ffffffffffffix:',
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+              FlatButton(
+                onPressed: () {
 //                debugDumpApp();
-                //导航到新路由
-                Navigator.pushNamed(context, "new_page");
+                  //导航到新路由
+                  Navigator.pushNamed(context, "new_page");
 //                Navigator.pushNamed(context, "new_page_test", arguments: "危险品");
 //                Navigator.pushNamed(context, "new_page_tip", arguments: "危险品");
 //                Navigator.of(context)
 //                    .push(MaterialPageRoute(builder: (context) {
 //                  return RouterTestRoute();
 //                }));
-              },
-              child: Text("打开新的页面 并传值：危险品"),
-              textColor: Colors.red,
-            ),
-            RandomWordWidget(),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_focus");
-              },
-              child: Text("控制焦点"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_form");
-              },
-              child: Text("表单&进度条"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_progress");
-              },
-              child: Text("进度色动画"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_row");
-              },
-              child: Text("Row"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_column");
-              },
-              child: Text("Column"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_flex");
-              },
-              child: Text("Flex"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_flow");
-              },
-              child: Text("Flow"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_stack");
-              },
-              child: Text("Stack"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_align");
-              },
-              child: Text("Align"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "new_page_padding");
-              },
-              child: Text("Padding"),
-            )
-          ],
-        ),),
+                },
+                child: Text("打开新的页面 并传值：危险品"),
+                textColor: Colors.red,
+              ),
+              RandomWordWidget(),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_focus");
+                },
+                child: Text("控制焦点"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_form");
+                },
+                child: Text("表单&进度条"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_progress");
+                },
+                child: Text("进度色动画"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_row");
+                },
+                child: Text("Row"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_column");
+                },
+                child: Text("Column"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_flex");
+                },
+                child: Text("Flex"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_flow");
+                },
+                child: Text("Flow"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_stack");
+                },
+                child: Text("Stack"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_align");
+                },
+                child: Text("Align"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_padding");
+                },
+                child: Text("Padding"),
+              )
+            ],
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
