@@ -1,8 +1,13 @@
 # study_flutter_app
 来自《Flutter实战》
+
 https://flutterchina.club/
+
 当前进度：
-https://book.flutterchina.club/chapter5/decoratedbox.html
+
+[2020年8月3日17:27:53]
+
+https://book.flutterchina.club/chapter7/dailog.html
 
 ## Getting Started
 

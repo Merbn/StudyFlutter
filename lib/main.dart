@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_flutter_app/InfiniteGridTestRoute.dart';
 import 'package:study_flutter_app/TipRoute.dart';
 import 'NewRoute.dart';
 import 'RouterTestRoute.dart';
@@ -13,6 +14,24 @@ import 'FlowTestRoute.dart';
 import 'StackTestRoute.dart';
 import 'AlignTestRoute.dart';
 import 'PaddingTestRoute.dart';
+import 'DecoratedBoxTestRoute.dart';
+import 'TransformTestRoute.dart';
+import 'ContainerTestRoute.dart';
+import 'ScaffoldTestRoute.dart';
+import 'ClipTestRoute.dart';
+import 'SingleChildScrollViewTestRoute.dart';
+import 'ListViewTestRoute.dart';
+import 'ListView3.dart';
+import 'InfiniteListView.dart';
+import 'GridTestRoute.dart';
+import 'CustomScrollViewTestRoute.dart';
+import 'ScrollControllerTestRoute.dart';
+import 'ScrollNofificationTestRoute.dart';
+import 'WillPopScopeTestRoute.dart';
+import 'ThemeTestRoute.dart';
+import 'FutureBuilderTestRoute.dart';
+import 'StreamBuilderTestRoute.dart';
+import 'DialogTestRoute.dart';
 
 void main() {
   runApp(MyApp());
@@ -52,6 +71,25 @@ class MyApp extends StatelessWidget {
         "new_page_stack": (context) => StackTestRoute(),
         "new_page_align": (context) => AlignTestRoute(),
         "new_page_padding": (context) => PaddingTestRoute(),
+        "new_page_decoratedbox": (context) => DecoratedBoxTestRoute(),
+        "new_page_transform": (context) => TransformTestRoute(),
+        "new_page_container": (context) => ContainerTestRoute(),
+        "new_page_scaffold": (context) => ScaffoldTestRoute(),
+        "new_page_clip": (context) => ClipTestRoute(),
+        "new_page_singleChildScrollView": (context) => SingleChildScrollViewTestRoute(),
+//        "new_page_listView": (context) => ListViewTestRoute(),
+//        "new_page_listView": (context) => ListView3(),
+        "new_page_listView": (context) => InfiniteListView(),
+        "new_page_gridview": (context) => GridTestRoute(),
+        "new_page_infinite_gridview": (context) => InfiniteGridView(),
+        "new_page_custom_scrollview": (context) => CustomScrollViewTestRoute(),
+        "new_page_scrollcontroller": (context) => ScrollControllerTestRoute(),
+        "new_page_scroll_notification": (context) => ScrollNofificationTestRoute(),
+        "new_page_will_popscope": (context) => WillPopScopeTestRoute(),
+        "new_page_them": (context) => ThemeTestRoute(),
+        "new_page_future_builder": (context) => FutureBuilderTestRoute(),
+        "new_page_stream_builder": (context) => StreamBuilderTestRoute(),
+        "new_page_dialog": (context) => DialogTestRoute(),
         "new_page_tip": (context) => TipRoute(
               text: ModalRoute.of(context).settings.arguments,
             )
@@ -82,7 +120,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -134,43 +171,146 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_row");
                 },
-                child: Text("Row"),
+                child: Text("线性布局：Row"),
               ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_column");
                 },
-                child: Text("Column"),
+                child: Text("线性布局：Column"),
               ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_flex");
                 },
-                child: Text("Flex"),
+                child: Text("弹性布局：Flex"),
               ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_flow");
                 },
-                child: Text("Flow"),
+                child: Text("流式布局：Flow"),
               ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_stack");
                 },
-                child: Text("Stack"),
+                child: Text("层叠布局：Stack"),
               ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_align");
                 },
-                child: Text("Align"),
+                child: Text("对齐：Align"),
               ),
               RaisedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, "new_page_padding");
                 },
-                child: Text("Padding"),
+                child: Text("填充：Padding"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_decoratedbox");
+                },
+                child: Text("装饰容器：DecoratedBox"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_transform");
+                },
+                child: Text("变换：Transform"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_container");
+                },
+                child: Text("容器：Container"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_scaffold");
+
+                },
+                child: Text("Scaffold"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_clip");
+                },
+                child: Text("裁剪：Clip"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_singleChildScrollView");
+                },
+                child: Text("SingleChildScrollView"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_listView");
+                },
+                child: Text("ListView"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_gridview");
+                },
+                child: Text("固定数量的：Gridview"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_infinite_gridview");
+                },
+                child: Text("异步数据源的：Gridview"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_custom_scrollview");
+                },
+                child: Text("CustomScrollView"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_scrollcontroller");
+                },
+                child: Text("ScrollController"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_scroll_notification");
+                },
+                child: Text("滚动监听"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_will_popscope");
+                },
+                child: Text("导航返回拦截：WillPopScope"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_them");
+                },
+                child: Text("Theme"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_future_builder");
+                },
+                child: Text("异步UI更新：FutureBuilder"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_stream_builder");
+                },
+                child: Text("异步UI更新：StreamBuilder"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "new_page_dialog");
+                },
+                child: Text("对话框"),
               )
             ],
           ),
