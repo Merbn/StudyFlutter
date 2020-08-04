@@ -36,9 +36,7 @@ class _ScrollControllerTestRouteState extends State<ScrollControllerTestRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("滚动控制"),
-      ),
+
       body: Scrollbar(
           child: ListView.builder(
         itemBuilder: (context, index) {

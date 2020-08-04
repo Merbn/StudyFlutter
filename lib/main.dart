@@ -32,6 +32,7 @@ import 'ThemeTestRoute.dart';
 import 'FutureBuilderTestRoute.dart';
 import 'StreamBuilderTestRoute.dart';
 import 'DialogTestRoute.dart';
+import 'widgets/page_scafflod.dart';
 
 void main() {
   runApp(MyApp());
@@ -76,7 +77,8 @@ class MyApp extends StatelessWidget {
         "new_page_container": (context) => ContainerTestRoute(),
         "new_page_scaffold": (context) => ScaffoldTestRoute(),
         "new_page_clip": (context) => ClipTestRoute(),
-        "new_page_singleChildScrollView": (context) => SingleChildScrollViewTestRoute(),
+        "new_page_singleChildScrollView": (context) =>
+            SingleChildScrollViewTestRoute(),
 //        "new_page_listView": (context) => ListViewTestRoute(),
 //        "new_page_listView": (context) => ListView3(),
         "new_page_listView": (context) => InfiniteListView(),
@@ -84,7 +86,8 @@ class MyApp extends StatelessWidget {
         "new_page_infinite_gridview": (context) => InfiniteGridView(),
         "new_page_custom_scrollview": (context) => CustomScrollViewTestRoute(),
         "new_page_scrollcontroller": (context) => ScrollControllerTestRoute(),
-        "new_page_scroll_notification": (context) => ScrollNofificationTestRoute(),
+        "new_page_scroll_notification": (context) =>
+            ScrollNofificationTestRoute(),
         "new_page_will_popscope": (context) => WillPopScopeTestRoute(),
         "new_page_them": (context) => ThemeTestRoute(),
         "new_page_future_builder": (context) => FutureBuilderTestRoute(),
@@ -121,200 +124,77 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'ffffffffffffix:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              FlatButton(
-                onPressed: () {
-//                debugDumpApp();
-                  //导航到新路由
-                  Navigator.pushNamed(context, "new_page");
-//                Navigator.pushNamed(context, "new_page_test", arguments: "危险品");
-//                Navigator.pushNamed(context, "new_page_tip", arguments: "危险品");
-//                Navigator.of(context)
-//                    .push(MaterialPageRoute(builder: (context) {
-//                  return RouterTestRoute();
-//                }));
-                },
-                child: Text("打开新的页面 并传值：危险品"),
-                textColor: Colors.red,
-              ),
-              RandomWordWidget(),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_focus");
-                },
-                child: Text("控制焦点"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_form");
-                },
-                child: Text("表单&进度条"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_progress");
-                },
-                child: Text("进度色动画"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_row");
-                },
-                child: Text("线性布局：Row"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_column");
-                },
-                child: Text("线性布局：Column"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_flex");
-                },
-                child: Text("弹性布局：Flex"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_flow");
-                },
-                child: Text("流式布局：Flow"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_stack");
-                },
-                child: Text("层叠布局：Stack"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_align");
-                },
-                child: Text("对齐：Align"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_padding");
-                },
-                child: Text("填充：Padding"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_decoratedbox");
-                },
-                child: Text("装饰容器：DecoratedBox"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_transform");
-                },
-                child: Text("变换：Transform"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_container");
-                },
-                child: Text("容器：Container"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_scaffold");
-
-                },
-                child: Text("Scaffold"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_clip");
-                },
-                child: Text("裁剪：Clip"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_singleChildScrollView");
-                },
-                child: Text("SingleChildScrollView"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_listView");
-                },
-                child: Text("ListView"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_gridview");
-                },
-                child: Text("固定数量的：Gridview"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_infinite_gridview");
-                },
-                child: Text("异步数据源的：Gridview"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_custom_scrollview");
-                },
-                child: Text("CustomScrollView"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_scrollcontroller");
-                },
-                child: Text("ScrollController"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_scroll_notification");
-                },
-                child: Text("滚动监听"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_will_popscope");
-                },
-                child: Text("导航返回拦截：WillPopScope"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_them");
-                },
-                child: Text("Theme"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_future_builder");
-                },
-                child: Text("异步UI更新：FutureBuilder"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_stream_builder");
-                },
-                child: Text("异步UI更新：StreamBuilder"),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "new_page_dialog");
-                },
-                child: Text("对话框"),
-              )
-            ],
+      body: ListView(
+        children: <Widget>[
+          ExpansionTile(
+            title: Text("第一个Flutter应用"),
+            children: _generateItem(
+                context, [PageInfo("路由传值", (ctx) => RouterTestRoute())]),
           ),
-        ),
+          ExpansionTile(
+            title: Text("基础组件"),
+            children: _generateItem(context, [
+              PageInfo("输入框", (cxt) => FocusTestRoute()),
+              PageInfo("表单&进度条", (cxt) => FormTestRoute()),
+              PageInfo("进度色动画", (cxt) => ProgressRoute()),
+              PageInfo("裁剪：Clip", (cxt) => ClipTestRoute()),
+              PageInfo("固定数量的：Gridview", (cxt) => GridTestRoute()),
+              PageInfo("异步数据源的：Gridview", (cxt) => InfiniteGridView()),
+              PageInfo("导航返回拦截：WillPopScope", (cxt) => WillPopScopeTestRoute()),
+              PageInfo(
+                  "异步UI更新：FutureBuilder", (cxt) => FutureBuilderTestRoute()),
+              PageInfo(
+                  "异步UI更新：StreamBuilder", (cxt) => StreamBuilderTestRoute()),
+              PageInfo("SingleChildScrollView",
+                  (cxt) => SingleChildScrollViewTestRoute()),
+              PageInfo("ListView", (cxt) => ListViewTestRoute()),
+              PageInfo("下划线ListView", (cxt) => ListView3()),
+              PageInfo("带头部ListView", (cxt) => InfiniteListView()),
+            ]),
+          ),
+          ExpansionTile(
+            title: Text("布局类组件"),
+            children: _generateItem(context, [
+              PageInfo("线性布局：Row", (cxt) => RowTestRoute()),
+              PageInfo("线性布局：Column", (cxt) => ColumnTestRoute()),
+              PageInfo("弹性布局：Flex", (cxt) => FlexLayoutTestRoute()),
+              PageInfo("流式布局：Flow", (cxt) => FlowTestRoute()),
+              PageInfo("层叠布局：Stack", (cxt) => StackTestRoute()),
+              PageInfo("对齐：Align", (cxt) => AlignTestRoute()),
+              PageInfo("填充：Padding", (cxt) => PaddingTestRoute()),
+            ]),
+          ),
+          ExpansionTile(
+            title: Text("容器类组件"),
+            children: _generateItem(context, [
+              PageInfo("装饰容器：DecoratedBox", (cxt) => DecoratedBoxTestRoute()),
+              PageInfo("变换：Transform", (cxt) => TransformTestRoute()),
+              PageInfo("容器：Container", (cxt) => ContainerTestRoute()),
+              PageInfo("Scaffold", (cxt) => ScaffoldTestRoute()),
+            ]),
+          ),
+          ExpansionTile(
+            title: Text("功能性组件"),
+            children: _generateItem(context, [
+              PageInfo("Theme", (cxt) => ThemeTestRoute()),
+              PageInfo("对话框", (cxt) => DialogTestRoute()),
+            ]),
+          ),
+          ExpansionTile(
+            title: Text("事件处理与通知"),
+            children: _generateItem(context, [
+              PageInfo("滚动控制：ScrollController",
+                  (cxt) => ScrollControllerTestRoute()),
+              PageInfo("滚动监听", (cxt) => ScrollNofificationTestRoute()),
+            ]),
+          ),
+          ExpansionTile(
+            title: Text("自定义组件"),
+            children: _generateItem(context, [
+              PageInfo("CustomScrollView", (cxt) => CustomScrollViewTestRoute()),
+            ]),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
@@ -322,5 +202,27 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.adb),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  List<Widget> _generateItem(BuildContext context, List<PageInfo> children) {
+    return children.map<Widget>((page) {
+      return ListTile(
+        title: Text(page.title),
+        trailing: Icon(Icons.keyboard_arrow_right),
+        onTap: () => _openPage(context, page),
+      );
+    }).toList();
+  }
+
+  void _openPage(BuildContext context, PageInfo page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      if (!page.withScaffold) {
+        return page.builder(context);
+      }
+      return PageScaffold(
+          title: page.title,
+          body: page.builder(context),
+          padding: page.padding);
+    }));
   }
 }
