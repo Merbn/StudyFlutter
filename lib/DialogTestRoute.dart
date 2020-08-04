@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DialogTestRoute extends StatefulWidget {
@@ -52,6 +53,18 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
               showLoadingDialog();
             },
             child: Text("加载框"),
+          ),
+          RaisedButton(
+            onPressed: () {
+              _showDatePicker1();
+            },
+            child: Text("日历"),
+          ),
+          RaisedButton(
+            onPressed: () {
+              _showDatePicker2();
+            },
+            child: Text("IOS风格日历"),
           )
         ],
       ),
@@ -282,16 +295,52 @@ class _DialogTestRouteState extends State<DialogTestRoute> {
         context: context,
         barrierDismissible: false,
         builder: (context) {
-          return AlertDialog(
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                CircularProgressIndicator(),
-                Padding(
-                  padding: EdgeInsets.only(top: 25.0),
-                  child: Text("正在加载，请稍候。。。"),
-                )
-              ],
+//          如果我们想自定义对话框宽度，这时只使用SizedBox或ConstrainedBox是不行的，原因是showDialog中已经给对话框设置了宽度限制，我们可以使用UnconstrainedBox先抵消showDialog对宽度的限制，然后再使用SizedBox指定宽度
+          return UnconstrainedBox(
+            constrainedAxis: Axis.vertical,
+            child: SizedBox(
+              width: 180,
+              child: AlertDialog(
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    CircularProgressIndicator(),
+                    Padding(
+                      padding: EdgeInsets.only(top: 25.0),
+                      child: Text("正在加载，请稍候。。。"),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
+  Future<DateTime> _showDatePicker1() {
+    var date = DateTime.now();
+    return showDatePicker(
+        context: context,
+        initialDate: date,
+        firstDate: date,
+        lastDate: date.add(Duration(days: 30)));
+  }
+
+  Future<DateTime> _showDatePicker2() {
+    var date = DateTime.now();
+    return showCupertinoModalPopup(
+        context: context,
+        builder: (context) {
+          return SizedBox(
+            height: 200,
+            child: CupertinoDatePicker(
+              onDateTimeChanged: (DateTime value) {
+                print(value);
+              },
+              minimumDate: date,
+              maximumDate: date.add(Duration(days: 30)),
+              maximumYear: date.year + 1,
+              mode: CupertinoDatePickerMode.dateAndTime,
             ),
           );
         });

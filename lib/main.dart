@@ -33,6 +33,11 @@ import 'FutureBuilderTestRoute.dart';
 import 'StreamBuilderTestRoute.dart';
 import 'DialogTestRoute.dart';
 import 'widgets/page_scafflod.dart';
+import 'PointerRoute.dart';
+import 'GestureDetectorTestRoute.dart';
+import 'GestureRecognizer.dart';
+import 'NotificationTestRoute.dart';
+import 'NotificationRoute.dart';
 
 void main() {
   runApp(MyApp());
@@ -186,12 +191,18 @@ class _MyHomePageState extends State<MyHomePage> {
               PageInfo("滚动控制：ScrollController",
                   (cxt) => ScrollControllerTestRoute()),
               PageInfo("滚动监听", (cxt) => ScrollNofificationTestRoute()),
+              PageInfo("原生指针事件", (cxt) => PointerRoute()),
+              PageInfo("手势识别", (cxt) => GestureDetectorTestRoute()),
+              PageInfo("手势识别-点我变色", (cxt) => GestureRecognizer()),
+              PageInfo("通知：Notification", (cxt) => NotificationTestRoute()),
+              PageInfo("通知：Notification 完整例子", (cxt) => NotificationRoute()),
             ]),
           ),
           ExpansionTile(
             title: Text("自定义组件"),
             children: _generateItem(context, [
-              PageInfo("CustomScrollView", (cxt) => CustomScrollViewTestRoute()),
+              PageInfo(
+                  "CustomScrollView", (cxt) => CustomScrollViewTestRoute()),
             ]),
           ),
         ],

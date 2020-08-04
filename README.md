@@ -7,7 +7,11 @@ https://flutterchina.club/
 
 [2020年8月3日17:27:53]
 
-https://book.flutterchina.club/chapter7/dailog.html
+https://book.flutterchina.club/chapter8/notification.html
+
+源码：
+
+https://github.com/wendux/flutter_in_action_source_code/blob/6db9da3655761cf538f5c82d24994008b21c4bd7/lib/main.dart#L156
 
 ## Getting Started
 
