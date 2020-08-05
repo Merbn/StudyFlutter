@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:study_flutter_app/InfiniteGridTestRoute.dart';
 import 'package:study_flutter_app/TipRoute.dart';
@@ -38,6 +39,10 @@ import 'GestureDetectorTestRoute.dart';
 import 'GestureRecognizer.dart';
 import 'NotificationTestRoute.dart';
 import 'NotificationRoute.dart';
+import 'ScaleAnimationTestRoute.dart';
+import 'ScaleAnimationTestRoute2.dart';
+import 'FadeRoute.dart';
+import 'HeroAnimationRoute.dart';
 
 void main() {
   runApp(MyApp());
@@ -205,6 +210,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   "CustomScrollView", (cxt) => CustomScrollViewTestRoute()),
             ]),
           ),
+          ExpansionTile(
+            title: Text("动画"),
+            children: _generateItem(context, [
+              PageInfo("ScaleAnimation", (cxt) => ScaleAnimationTestRoute()),
+              PageInfo(
+                  "使用AnimatedWidget简化", (cxt) => ScaleAnimationTestRoute2()),
+              PageInfo("共享元素动画", (cxt) => HeroAnimationRoute()),
+            ]),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -226,6 +240,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _openPage(BuildContext context, PageInfo page) {
+//    ios风格的 路由切换风格动画
+//    Navigator.push(context, CupertinoPageRoute(builder: (context) {
+//      if (!page.withScaffold) {
+//        return page.builder(context);
+//      }
+//      return PageScaffold(
+//          title: page.title,
+//          body: page.builder(context),
+//          padding: page.padding);
+//    }));
+//    安卓风格
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       if (!page.withScaffold) {
         return page.builder(context);
@@ -235,5 +260,24 @@ class _MyHomePageState extends State<MyHomePage> {
           body: page.builder(context),
           padding: page.padding);
     }));
+//  自定义风格
+//    Navigator.push(context, PageRouteBuilder(
+//        transitionDuration: Duration(milliseconds: 500),
+//        pageBuilder: (BuildContext context, Animation animation,
+//            Animation secondaryAnimation) {
+//          return new FadeTransition(opacity: animation, child:page.builder(context),);
+//        }));
+//  可以直接继承PageRoute类来实现自定义路由
+//    Navigator.push(context, FadeRoute(builder: (context) {
+//      if (!page.withScaffold) {
+//        return page.builder(context);
+//      }
+//      return PageScaffold(
+//          title: page.title,
+//          body: page.builder(context),
+//          padding: page.padding);
+//
+//    }));
+//  虽然上面的两种方法都可以实现自定义切换动画，但实际使用时应优先考虑使用PageRouteBuilder，这样无需定义一个新的路由类，使用起来会比较方便。但是有些时候PageRouteBuilder是不能满足需求的，例如在应用过渡动画时我们需要读取当前路由的一些属性，这时就只能通过继承PageRoute的方式了
   }
 }

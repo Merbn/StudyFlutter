@@ -7,7 +7,7 @@ https://flutterchina.club/
 
 [2020年8月3日17:27:53]
 
-https://book.flutterchina.club/chapter8/notification.html
+https://book.flutterchina.club/chapter9/stagger_animation.html
 
 源码：
 
